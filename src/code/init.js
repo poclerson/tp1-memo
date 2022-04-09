@@ -1,25 +1,17 @@
-import firebaseConfig from './config';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
+import configFirebase from './config';
 
-/***************************************
- * Firebase
- **************************************/
 // Initialiser Firebase
+export const appliFirebase = initializeApp(configFirebase);
 
+// Initialiser l'authentification Firebase
+export const authFirebase = getAuth(appliFirebase);
 
-/***************************************
- * Firebase Authentication
- **************************************/
-// Initialiser Firebase Authentication
+// Initialiser l'authentification Google
+export const authGoogle = new GoogleAuthProvider();
 
-// Initialiser l'authentification fédérée Google
-
-
-/***************************************
- * Firestore
- ***************************************/
 // Initialiser Firestore
-
+export const bdFirestore = getFirestore();
